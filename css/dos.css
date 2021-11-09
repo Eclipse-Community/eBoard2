@@ -2,8 +2,9 @@
 
 *
 {
+	max-width: 999999px !important;
 	border: 0px none !important;
-	margin: 0px;
+	margin: 0px !important;
 	font-weight: normal !important;
 }
 

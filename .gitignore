@@ -1,0 +1,14 @@
+lib/database.php
+lib/salt.php
+lib/settings.php
+plugins/CustomUserNameColors/colors
+uploader
+400.shtml
+401.shtml
+403.shtml
+404.shtml
+413.shtml
+500.shtml
+cp_errordocument.shtml
+img/avatars
+img/minipics

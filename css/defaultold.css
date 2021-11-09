@@ -1,0 +1,33 @@
+/* AcmlmBoard XD - Default board theme */
+
+/* Normally, this would contain a truckload of CSS data, but most of it is in common.php.
+So instead we just add some little bits like form colors. */
+
+button, input[type="submit"]
+{
+	border: 1px solid #669;
+	background: #24285C;
+	color: #FFF;
+}
+
+input[type="text"], input[type="password"], input[type="file"], input[type="email"], select, textarea
+{
+	background: #24285C;
+	border: 1px solid #669;
+	color: white;
+}
+
+input[type="checkbox"], input[type="radio"]
+{
+	background: #24285C;
+	border: 2px ridge #669;
+	color: white;
+}
+
+div#tabs
+{
+	position: relative;
+	left: 8px;
+	top: 8px;
+}
+

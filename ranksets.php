@@ -1,0 +1,115 @@
+<?php
+//  AcmlmBoard XD - Source file for addranks.php
+//  Access: N/A
+
+//Rank images should match the rank text, but without punctuation or spaces.
+//Possible settings for a rankset include:
+// "name" -- required, name displayed in choices
+// "directory" -- name of rankset image directory, defaults to name
+// "notolower" -- bool, disables str_tolower() calls, e.g. canonical Zelda set
+// "noimages" -- bool, disables automajickal conversion to <img> tags
+// "splitlines" -- bool, enables <br /> insertion
+//Note that any rank below 10 posts is assumed text only as if noimages was set.
+
+$ranks = array
+(
+	array
+	(
+		"name" => "Mario",
+		"ranks" => array
+		(
+			0 => "Non-poster",
+			1 => "Newcomer",
+			10 => "Micro-Goomba",
+			20 => "Goomba",
+			35 => "Red Goomba",
+			50 => "Red Paragoomba",
+			65 => "Paragoomba",
+			80 => "Shyguy",
+			100 => "Koopa",
+			120 => "Red Koopa",
+			140 => "Paratroopa",
+			160 => "Red Paratroopa",
+			180 => "Cheep-cheep",
+			200 => "Red Cheep-cheep",
+			225 => "Ninji",
+			250 => "Flurry",
+			275 => "Snifit",
+			300 => "Porcupo",
+			325 => "Panser",
+			350 => "Mole",
+			375 => "Buzzy Beetle",
+			400 => "Nipper Plant",
+			425 => "Bloober",
+			450 => "Buster Beetle",
+			475 => "Beezo",
+			500 => "Bullet Bill",
+			525 => "Rex",
+			550 => "Lakitu",
+			575 => "Spiny",
+			600 => "Bob-Omb",
+			625 => "Dry Bones",
+			650 => "Cobrat",
+			675 => "Pokey",
+			700 => "Spike",
+			725 => "Melon Bug",
+			750 => "Lantern Ghost",
+			775 => "Fuzzy",
+			800 => "Bandit",
+			830 => "Super Koopa",
+			860 => "Red Super Koopa",
+			900 => "Boo",
+			925 => "Boo 2",
+			950 => "Fuzz Ball",
+			1000 => "Boomerang Brother",
+			1050 => "Hammer Brother",
+			1100 => "Fire Brother",
+			1150 => "Fire Snake",
+			1200 => "Giant Goomba",
+			1250 => "Giant Koopa",
+			1300 => "Giant Red Koopa",
+			1350 => "Giant Paratroopa",
+			1400 => "Giant Red Paratroopa",
+			1450 => "Chuck",
+			1500 => "Thwomp",
+			1550 => "Boss Bass",
+			1600 => "Volcano Lotus",
+			1650 => "Lava Lotus",
+			1700 => "Ptooie",
+			1800 => "Sledge Brother",
+			1900 => "Boomboom",
+			2000 => "Birdo",
+			2100 => "Red Birdo",
+			2200 => "Green Birdo",
+			2300 => "Larry Koopa",
+			2400 => "Morton Koopa",
+			2500 => "Wendy Koopa",
+			2600 => "Iggy Koopa",
+			2700 => "Roy Koopa",
+			2800 => "Lemmy Koopa",
+			2900 => "Ludwig Von Koopa",
+			3000 => "Triclyde",
+			3100 => "Magikoopa",
+			3200 => "Wart",
+			3300 => "Baby Bowser",
+			3400 => "King Bowser Koopa",
+			3500 => "Yoshi",
+			3600 => "Yellow Yoshi",
+			3700 => "Blue Yoshi",
+			3800 => "Red Yoshi",
+			3900 => "King Yoshi",
+			4000 => "Baby Mario",
+			4100 => "Luigi",
+			4200 => "Mario",
+			4300 => "Super Luigi",
+			4400 => "Super Mario",
+			4500 => "Fire Luigi",
+			4600 => "Fire Mario",
+			4700 => "Cape Luigi",
+			4800 => "Cape Mario",
+			4900 => "Star Luigi",
+			5000 => "Star Mario",
+		)
+	),
+);
+?>

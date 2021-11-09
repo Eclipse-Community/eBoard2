@@ -2,6 +2,7 @@
 
 body
 {
+	max-width: 1366px;
 	background: #040420 url(../img/themes/defaultold/back2c.png);
 	color: #FFF;
 	font-family: "Verdana", "Lucida Grande", sans-serif;

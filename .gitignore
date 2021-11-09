@@ -1,5 +1,6 @@
 lib/database.php
 lib/salt.php
+lib/settings.php
 plugins/CustomUserNameColors/colors
 uploader
 400.shtml

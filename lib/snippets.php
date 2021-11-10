@@ -161,37 +161,6 @@ function UserLink($user, $field = "id")
 
 	$classing = " class=\"nc" . $fsex . (($fpow < 0) ? "x" : $fpow)."\"";
 
-	if($hacks['themenames'] == 1)
-	{
-		global $lastJokeNameColor;
-		$classing = " style=\"color: ";
-		if($lastJokeNameColor % 2 == 1)
-			$classing .= "#E16D6D; \"";
-		else
-			$classing .= "#44D04B; \"";
-		if($fpow == -1)
-			$classing = " class=\"nc0x\"";
-		$lastJokeNameColor++;
-	} else if($hacks['themenames'] == 2 && $fpow > -1)
-	{
-		$classing = " style =\"color: #".GetRainbowColor()."\"";
-	} else if($hacks['themenames'] == 3)
-	{
-		if($fpow > 2)
-		{
-			$fname = "Administration";
-			$classing = " class=\"nc23\"";
-		} else if($fpow == -1)
-		{
-			$fname = "Idiot";
-			$classing = " class=\"nc2x\"";
-		} else
-		{
-			$fname = "Anonymous";
-			$classing = " class=\"nc22\"";
-		}
-	}
-
 	$levels = array(-1 => " [".__("banned")."]", 0 => "", 1 => " [".__("local mod")."]", 2 => " [".__("full mod")."]", 3 => " [".__("admin")."]", 4 => " [".__("root")."]", 5 => " [".__("system")."]");
 
 	$bucket = "userLink"; include('lib/pluginloader.php');

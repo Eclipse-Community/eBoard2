@@ -2,9 +2,9 @@
 //Generated and parsed by the Board Settings admin panel.
 
 //Settings
-$boardname = 'eBoard²';
-$logoalt = 'Another eBoard² Board';
-$logotitle = 'Another eBoard² Board';
+$boardname = 'eBoard2';
+$logoalt = 'Another eBoard2 Board';
+$logotitle = 'Another eBoard2 Board';
 $dateformat = 'm/d/Y, H:i:s';
 $autoLockMonths = 0;
 $warnMonths = 0;
@@ -30,16 +30,16 @@ $hacks['themenames'] = 0;
 
 //Profile Preview Post
 $profilePreviewText = 'This is a sample post. It demonstrates various kinds of [i]markup[/i] and quotes and such.
-This has to be one of the [b]longest[/b] preview messages ever seen in an eBoard².[quote=Barack Obama]I am Barack Obama and I approve this preview message.[quote=some guy]This is a nested quote. See what you get.[/quote][/quote]Well, what more could you [url=http://en.wikipedia.org]want to know[/url]? Perhaps how to do the classic infinite loop?
+This has to be one of the [b]longest[/b] preview messages ever seen in an eBoard2.[quote=Barack Obama]I am Barack Obama and I approve this preview message.[quote=some guy]This is a nested quote. See what you get.[/quote][/quote]Well, what more could you [url=http://en.wikipedia.org]want to know[/url]? Perhaps how to do the classic infinite loop?
 [source=qbasic]10 PRINT "Hello World!"
 20 GOTO 10[/source]HEEEEY MACARONI! :D';
 
 //Meta
-$metaDescription = 'The owner of this eBoard² board was too lazy to edit the description field. Kill him.';
-$metaKeywords = 'eboard²,board';
+$metaDescription = 'The owner of this eBoard2 board was too lazy to edit the description field. Kill him.';
+$metaKeywords = 'eBoard2,board';
 
 //RSS
-$feedname = 'New eBoard² Feed';
+$feedname = 'New eBoard2 Feed';
 $rssblurb = 'The latest replies on the board.';
 
 ?>

@@ -6,10 +6,10 @@
 //in favor of an easier system.
 
 $themes = array(
-	"default"=>"eBoard² (Default)",
+	"default"=>"eBoard2 (Default)",
 
 	//Packins
-	"eboard2dark"=>"eBoard² Dark",
+	"eboard2dark"=>"eBoard2 Dark",
 	"abxd20"=>"ABXD 2.0",
 	"defaultold"=>"ABXD Classic (rounded)",
 	"defaultsharp"=>"ABXD Classic (sharp)",
@@ -24,9 +24,9 @@ $themes = array(
 );
 
 $themeBylines = array(
-	"default"=>"eBoard² theme by K4sum1",
+	"default"=>"eBoard2 theme by K4sum1",
     
-    "eboard2dark"=>"eBoard² theme, but dark(er)<br />Also by K4sum1",
+    "eboard2dark"=>"eBoard2 theme, but dark(er)<br />Also by K4sum1",
 	"abxd20"=>"Design by Kawa",
 	"cheese"=>"Original by Acmlm<br />Ported by Kawa",
 	"cycle"=>"Design by Kawa",

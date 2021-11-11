@@ -44,7 +44,7 @@ function DoFooter($buffer)
 "
 		<div class=\"footer\">
 			Powered by <a href=\"https://github.com/Eclipse-Community/eBoard2\">eBoard2</a>, version 2.3.0.6<br />
-			eBoard2 by K4sum1, Kouto, et al<br />
+			By K4sum1, Kouto, et al<br />
 			ABXD by Dirbaio, xfix, Kawa, StapleButter, Nina, et al<br />
 			AcmlmBoard © Jean-François Lapointe<br />
 			".__("Page rendered in {0} seconds with {1}.")."<br />

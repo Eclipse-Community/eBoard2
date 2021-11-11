@@ -365,9 +365,9 @@ if (isset($_POST['theme']) && $user['id'] == $loguserid)
 	$themeFile = $theme.".css";
 	if(!file_exists("css/".$themeFile))
 		$themeFile = $theme.".php";
-	$logopic = "img/themes/default/logo.png";
-	if(file_exists("img/themes/".$theme."/logo.png"))
-		$logopic = "img/themes/".$theme."/logo.png";
+	$logopic = "img/themes/default/logo.gif";
+	if(file_exists("img/themes/".$theme."/logo.gif"))
+		$logopic = "img/themes/".$theme."/logo.gif";
 }
 
 

@@ -30,7 +30,7 @@ $loguser['fontsize'] = 80;
 $themeFile = "default.css";
 include("lib/snippets.php");
 include("lib/settings.php");
-$logopic = "img/themes/default/logo.png";
+$logopic = "img/themes/default/logo.gif";
 $overallTidy = 0;
 unset($misc['porabox']);
 $title = "Installation";

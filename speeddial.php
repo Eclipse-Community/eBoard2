@@ -21,7 +21,7 @@ $stats = Plural($newToday,"new post")." today,<br />".$newLastHour." last hour."
 <meta http-equiv="preview-refresh" content="3600" />
 </head>
 <body>
-<img src="img/themes/default/logo.png" style="width: 90%; margin-top: 5%;" /><br />
+<img src="img/themes/default/logo.gif" style="width: 90%; margin-top: 5%;" /><br />
 <br />
 <?php print $stats; ?>
 </body>

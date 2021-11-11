@@ -79,7 +79,7 @@ else if($action == "tf")	//Theme File
 {
 	include("css/themelist.php");
 	$theme = $_GET['t'];
-	if (!$themes[$theme]) die("css/default.css|img/themes/default/logo.png");
+	if (!$themes[$theme]) die("css/default.css|img/themes/default/logo.gif");
 	$themeFile = "css/".$theme.".css";
 	if(!file_exists($themeFile))
 	{
@@ -87,9 +87,9 @@ else if($action == "tf")	//Theme File
 		if(!file_exists($themeFile))
 			$themeFile = "css/default.css";
 	}
-	$logopic = "img/themes/default/logo.png";
-	if(file_exists("img/themes/".$theme."/logo.png"))
-		$logopic = "img/themes/".$theme."/logo.png";
+	$logopic = "img/themes/default/logo.gif";
+	if(file_exists("img/themes/".$theme."/logo.gif"))
+		$logopic = "img/themes/".$theme."/logo.gif";
 	die($themeFile."|".$logopic);
 }
 else if($action == "ni")	//New Indicators

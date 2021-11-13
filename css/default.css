@@ -20,39 +20,39 @@ a:active
 }
 a:hover
 {
-	color:#FFF;
+	color: #FFF;
 }
 
 .outline
 {
-	outline-color: hsl(280, 50%, 20%);
+	outline-color: #3c194d;
 }
 
 .cell0, table.post td.post
 {
-	background: hsl(280, 50%, 16%) url(../img/themes/default/cellgradient.png) repeat-x top;
+	background: #30143d url(../img/themes/default/cellgradient.png) repeat-x top;
 }
 
 .cell1, table.post, .faq, .errorc, .post_content
 {
-	background: hsl(280, 50%, 20%) url(../img/themes/default/cellgradient.png) repeat-x top;
+	background: #3c194d url(../img/themes/default/cellgradient.png) repeat-x top;
 }
 
 .cell2
 {
-	background: hsl(280, 50%, 28%) url(../img/themes/default/cellgradient.png) repeat-x top;
+	background: #53246b url(../img/themes/default/cellgradient.png) repeat-x top;
 }
 
 .header0 th
 {
-	background: hsl(280, 50%, 32%) url(../img/themes/default/headergradient.png) repeat-x bottom;
+	background: #5f297a url(../img/themes/default/headergradient.png) repeat-x bottom;
 	color: #fff;
 	text-shadow: 1px 1px 0px #000;
 }
 
 .header1 th, .errort
 {
-	background: hsl(280, 50%, 40%) url(../img/themes/default/headergradient.png) repeat-x bottom;
+	background: #773399 url(../img/themes/default/headergradient.png) repeat-x bottom;
 	color: #fff;
 	text-shadow: 1px 1px 0px #000;
 }
@@ -70,54 +70,54 @@ a:hover
 h3
 {
 	border-top: 0px none;
-	border-bottom-color: hsl(280, 50%, 48%);
+	border-bottom-color: #8f3db8;
 }
 
 #pmNotice
 {
-	background: hsl(280, 50%, 48%, 0.75);
+	background: rgba(143, 61, 184, 0.75);
 }
 
 #pmNotice:hover
 {
-	background: hsl(280, 50%, 48%);
+	background: #8f3db8;
 }
 
 .swf
 {
-	border-color: hsl(280, 50%, 24%);
-	background: hsl(280, 50%, 24%);
+	border-color: #471f5c;
+	background: #471f5c;
 }
 
 .swfmain
 {
-	border-color: hsl(280, 50%, 24%);
+	border-color: #471f5c;
 }
 
 .swfbuttonon, .swfbuttonoff
 {
-	border-color: hsl(280, 50%, 48%);
-	background: hsl(280, 50%, 48%);
+	border-color: #8f3db8;
+	background: #8f3db8;
 }
 
 /*
 button, input[type=submit]
 {
-	border: 1px solid hsl(280, 50%, 20%);
-	background-color: hsl(280, 50%, 30%);
+	border: 1px solid #3c194d;
+	background-color: #592673;
 	border-radius: 4px;
 	box-shadow:
-		inset -1px -10px 5px hsl(280, 50%, 20%),
+		inset -1px -10px 5px #3c194d,
 		inset 1px 6px 12px hsl(280, 50%, 50%),
-		1px 1px 1px hsl(280, 50%, 10%);
+		1px 1px 1px #1e0d26;
 	color: white;
 	text-shadow: 1px 1px 1px black;
 }
 
 input[type=text], input[type=password], textarea, select
 {
-	border: 1px solid hsl(280, 50%, 20%);
-	background-color: hsl(280, 50%, 10%);
+	border: 1px solid #3c194d;
+	background-color: #1e0d26;
 	border-radius: 4px;
 	box-shadow: inset 1px 6px 12px black;
 	color: white;
@@ -126,8 +126,8 @@ input[type=text], input[type=password], textarea, select
 
 input[type=checkbox], input[type=radio]
 {
-	border: 1px solid hsl(280, 50%, 20%);
-	background-color: hsl(280, 50%, 10%);
+	border: 1px solid #3c194d;
+	background-color: #1e0d26;
 	box-shadow: 1px 1px 2px black;
 	color: white;
 }
@@ -140,8 +140,8 @@ input[type=radio]
 
 button, input[type=submit]
 {
-	border: 1px solid hsl(280, 50%, 20%);
-	background-color: hsl(280, 50%, 30%);
+	border: 1px solid #3c194d;
+	background-color: #592673;
 	color: white;
 	text-shadow: 1px 1px 0px #000;
 	border-radius: 8px;
@@ -150,15 +150,15 @@ button, input[type=submit]
 input[type=text], input[type=password], input[type=file], input[type=email], textarea, select
 {
 	border-radius: 6px;
-	border: 1px solid hsl(280, 50%, 20%);
-	background-color: hsl(280, 50%, 10%);
+	border: 1px solid #3c194d;
+	background-color: #1e0d26;
 	color: white;
 }
 
 input[type=checkbox], input[type=radio]
 {
-	border: 1px solid hsl(280, 50%, 20%);
-	background-color: hsl(280, 50%, 10%);
+	border: 1px solid #3c194d;
+	background-color: #1e0d26;
 	color: white;
 }
 input[type=radio]
@@ -168,27 +168,27 @@ input[type=radio]
 
 .pollbarContainer
 {
-	border: 1px solid hsl(280, 50%, 30%);
+	border: 1px solid #592673;
 }
 
 
 .post_about, .post_topbar
 {
-	background: hsl(280, 50%, 16%) url(../img/themes/default/cellgradient.png) repeat-x top;
+	background: #30143d url(../img/themes/default/cellgradient.png) repeat-x top;
 }
 .post_about, .post_topbar, .post_content
 {
-	border: 1px solid hsl(280, 50%, 20%);
+	border: 1px solid #3c194d;
 }
 
 table.post
 {
-	border: 1px solid hsl(280, 50%, 20%);
+	border: 1px solid #3c194d;
 }
 
 table.outline
 {
-	border: 1px solid hsl(280, 50%, 20%);
+	border: 1px solid #3c194d;
 }
 
 div#tabs button
@@ -198,13 +198,13 @@ div#tabs button
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
 	padding-right: 16px;
-	background: hsl(280, 50%, 30%);
+	background: #592673;
 }
 
 div#tabs button.selected
 {
 	position: static;
 	z-index: -100;
-	border-bottom: 1px solid hsl(280, 50%, 20%);
-	background: hsl(280, 50%, 40%);
+	border-bottom: 1px solid #3c194d;
+	background: #773399;
 }

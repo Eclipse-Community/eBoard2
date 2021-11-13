@@ -1,9 +1,9 @@
-/* AcmlmBoard XD - eBoard2 Dark Theme */
+/* AcmlmBoard XD - eBoard2 Theme */
 
 body
 {
-	background: #17151c;
-	color: #E0E0E0;
+	background-color: #17151c !important;
+	background: url(../img/themes/default/background.png);
 }
 
 a:link
@@ -23,42 +23,38 @@ a:hover
 	color: #FFF;
 }
 
-table, tr, td, th, div {
-	border-width: 0px;
-	border-color: rgba(0, 0, 0, 0);
-	border-style: none;
-}
-
 .outline
 {
-	border: 1px solid #723f8c;
+	outline-color: #3c194d;
 }
 
 .cell0, table.post td.post
 {
-	background: #0b0a0d;
+	background: #30143d url(../img/themes/default/cellgradient.png) repeat-x top;
 }
 
 .cell1, table.post, .faq, .errorc, .post_content
 {
-	background: #0b0a0d;
+	background: #3c194d url(../img/themes/default/cellgradient.png) repeat-x top;
 }
 
 .cell2
 {
-	background: #0b0a0d;
+	background: #53246b url(../img/themes/default/cellgradient.png) repeat-x top;
 }
 
 .header0 th
 {
-	background: #17151c;
-	color: #E0E0E0;
+	background: #5f297a url(../img/themes/default/headergradient.png) repeat-x bottom;
+	color: #fff;
+	text-shadow: 1px 1px 0px #000;
 }
 
 .header1 th, .errort
 {
-	background: #17151c;
-	color: #E0E0E0;
+	background: #773399 url(../img/themes/default/headergradient.png) repeat-x bottom;
+	color: #fff;
+	text-shadow: 1px 1px 0px #000;
 }
 
 .errort, .errorc
@@ -79,7 +75,7 @@ h3
 
 #pmNotice
 {
-	background:  rgba(143, 61, 184, 0.75);
+	background: rgba(143, 61, 184, 0.75);
 }
 
 #pmNotice:hover
@@ -112,7 +108,7 @@ button, input[type=submit]
 	box-shadow:
 		inset -1px -10px 5px #3c194d,
 		inset 1px 6px 12px hsl(280, 50%, 50%),
-		1px 1px 1px hsl(280, 50%, 10%);
+		1px 1px 1px #1e0d26;
 	color: white;
 	text-shadow: 1px 1px 1px black;
 }
@@ -120,7 +116,7 @@ button, input[type=submit]
 input[type=text], input[type=password], textarea, select
 {
 	border: 1px solid #3c194d;
-	background-color: hsl(280, 50%, 10%);
+	background-color: #1e0d26;
 	box-shadow: inset 1px 6px 12px black;
 	color: white;
 	padding-left: 0.5em;
@@ -129,7 +125,7 @@ input[type=text], input[type=password], textarea, select
 input[type=checkbox], input[type=radio]
 {
 	border: 1px solid #3c194d;
-	background-color: hsl(280, 50%, 10%);
+	background-color: #1e0d26;
 	box-shadow: 1px 1px 2px black;
 	color: white;
 }
@@ -138,55 +134,35 @@ input[type=checkbox], input[type=radio]
 
 button, input[type=submit]
 {
-	border: 1px solid #723f8c;
-	background-color: #1a0f20;
-	color: #E0E0E0;
+	border: 1px solid #3c194d;
+	background-color: #592673;
+	color: white;
+	text-shadow: 1px 1px 0px #000;
 }
 
 input[type=text], input[type=password], input[type=file], input[type=email], textarea, select
 {
-	background: #1a0f20;
-	border: 1px solid #723f8c;
-	color: #E0E0E0;
+	border: 1px solid #3c194d;
+	background-color: #1e0d26;
+	color: white;
 }
 
 input[type=checkbox], input[type=radio]
 {
 	border: 1px solid #3c194d;
-	background-color: #17151c;
+	background-color: #1e0d26;
 	color: white;
 }
-button:hover, input[type="submit"]:hover, select:hover, input[type="checkbox"]:hover, input[type="radio"]:hover {
-	background-color: #1a0f20;
-	border: 1px solid #723f8c;
-}
-input[type="text"]:focus, input[type="password"]:focus, input[type="file"]:focus, input[type="email"]:focus, textarea:focus {
-	border-color: #723f8c;
-	outline: none;
+
+.pollbarContainer
+{
+	border: 1px solid #592673;
 }
 
-.pollbarContainer {
-	background: #0b0a0d;
-	border-radius: 0px;
-	box-shadow: none;
-	border: none;
-}
-
-.pollbar {
-	border-radius: 0px;
-	box-shadow: none;
-	border: 0px none;
-}
-
-td.threadIcons label > input:checked ~ * {
-	background: #723f8c;
-	border-radius: 0px;
-	border: 1px solid #723f8c;
-}
 
 .post_about, .post_topbar
 {
-	background: #17151c url(../img/themes/default/cellgradient.png) repeat-x top;
+	background: #30143d url(../img/themes/default/cellgradient.png) repeat-x top;
 }
 .post_about, .post_topbar, .post_content
 {
@@ -195,27 +171,32 @@ td.threadIcons label > input:checked ~ * {
 
 table.post
 {
-	border: 1px solid #723f8c;
+	border: 1px solid #3c194d;
 }
 
 table.outline
 {
-	border: 1px solid #723f8c;
+	border: 1px solid #3c194d;
 }
 
-div#tabs button {
-	background: #1a0f20;
+div#tabs button
+{
+	border-top-left-radius: 8px;
+	border-top-right-radius: 32px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	padding-right: 16px;
+	background: #592673;
 }
 
-div#tabs button.selected {
-	border-bottom: 1px solid #723f8c;
-	background: #723f8c;
+div#tabs button.selected
+{
+	position: static;
+	z-index: -100;
+	border-bottom: 1px solid #3c194d;
+	background: #773399;
 }
 .PoRT, .pollbarContainer, .pollbar, table.post, .post_about, .post_topbar, .post_content, .PoRT .errort, .PoRT .errorc, table.post td.side, table.post td.userlink, table.post td.meta, table.post td.post, table.outline, table.outline tr:first-child th:first-child, table.outline tr:first-child th:last-child, div#tabs button
 {
 	border-radius: 0px;
-}
-.outline
-{
-	outline: 0px !important;
 }

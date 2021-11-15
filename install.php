@@ -39,13 +39,16 @@ $timeStart = usectime();
 include("lib/feedback.php");
 include("lib/header.php");
 include("lib/write.php");
+mkdir("img/avatars");
+mkdir("img/minipics");
+mkdir("uploader");
 
 if(is_file("lib/database.php")) {
 	include("lib/database.php");
 	// It's update! Check if the version is really newer.
 	include("lib/mysql.php");
 	$misc = Fetch(Query("select * from misc"));
-	if($misc['version'] >= 226) {
+	if($misc['version'] >= 230) {
 		Kill("Updating to current version?");
 	}
 	mysql_close();
@@ -276,7 +279,7 @@ else if($_POST['action'] == "Install")
 	$misc = Query("select * from misc");
 	if(NumRows($misc) == 0)
 		Query("INSERT INTO `misc` (`views`, `hotcount`, `porabox`, `poratitle`, `milestone`, `maxuserstext`) VALUES (0, 30, '', 'Points of Required Attention', 'Nothing yet.', 'Nobody yet.');");
-	Query("UPDATE `misc` SET `version` = 226");
+	Query("UPDATE `misc` SET `version` = 230");
 	$smilies = Query("select * from smilies");
 	if(NumRows($smilies) == 0)
 		Query("

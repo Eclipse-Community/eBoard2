@@ -104,7 +104,11 @@ if(NumRows($rGuests))
 			<td title=\"{2}\">{3}</td>
 			<td>{4}</td>
 			<td>{5}</td>
-			<td>{6} {7}</td>
+".($loguser['powerlevel'] > 0 ? "
+			<td>
+				{6} {7}
+			</td>
+" : "")."
 		</tr>
 ",	$cellClass, $i, htmlspecialchars($guest['useragent']),
 	htmlspecialchars(substr($guest['useragent'], 0, 65)), cdate("d-m-y G:i:s", $guest['date']),
@@ -134,7 +138,11 @@ if(NumRows($rBots))
 			<td title=\"{2}\">{3}</td>
 			<td>{4}</td>
 			<td>{5}</td>
-			<td>{6}</td>
+".($loguser['powerlevel'] > 0 ? "
+			<td>
+				{6}
+			</td>
+" : "")."
 		</tr>
 ",	$cellClass, $i, htmlspecialchars($bot['useragent']),
 	htmlspecialchars(substr($bot['useragent'], 0, 65)), cdate("d-m-y G:i:s", $bot['date']),
@@ -190,9 +198,11 @@ write(
 			<th>
 				".__("URL")."
 			</th>
+".($loguser['powerlevel'] > 0 ? "
 			<th style=\"width: 140px;\">
 				".__("IP")."
 			</th>
+" : "")."
 		</tr>
 		<tr class=\"header0\">
 			<th colspan=\"5\">

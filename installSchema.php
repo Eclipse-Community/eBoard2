@@ -71,7 +71,7 @@ $tables = array
 			"date" => $genericInt,
 			"lasturl" => "varchar(100)".$notNull,
 			"lastforum" => $genericInt,
-			"useragent" => "varchar(100)".$notNull,			
+			"useragent" => $var256.$notNull,			
 			"bot" => $bool,
 		),
 		"special" => $keyID

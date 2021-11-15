@@ -39,18 +39,10 @@ $timeStart = usectime();
 include("lib/feedback.php");
 include("lib/header.php");
 include("lib/write.php");
+@mkdir("img/avatars");
+@mkdir("img/minipics");
+@mkdir("uploader");
 
-$test = @fopen("img/avatars/test.txt", "w");
-if($test === FALSE)
-	mkdir("img/avatars");
-	mkdir("img/minipics");
-	mkdir("uploader");
-	fclose($test);
-else
-{
-	fclose($test);
-	unlink("img/avatars/test.txt");
-}
 
 if(is_file("lib/database.php")) {
 	include("lib/database.php");

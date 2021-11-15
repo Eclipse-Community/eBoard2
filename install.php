@@ -45,9 +45,9 @@ if(is_file("lib/database.php")) {
 	// It's update! Check if the version is really newer.
 	include("lib/mysql.php");
 	$misc = Fetch(Query("select * from misc"));
-	if($misc['version'] >= 230) {
-		Kill("Updating to current version?");
-	}
+	//if($misc['version'] >= 230) {
+	//	Kill("Updating to current version?");
+	//}
 	mysql_close();
 }
 else {

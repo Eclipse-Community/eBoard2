@@ -39,9 +39,6 @@ $timeStart = usectime();
 include("lib/feedback.php");
 include("lib/header.php");
 include("lib/write.php");
-mkdir("img/avatars");
-mkdir("img/minipics");
-mkdir("uploader");
 
 if(is_file("lib/database.php")) {
 	include("lib/database.php");
@@ -84,7 +81,10 @@ if(!isset($_POST['action']))
 	}
 	$test = @fopen("img/avatars/test.txt", "w");
 	if($test === FALSE)
-		Kill(format("PHP does not seem to have write access to the /{1} directory ({0}/{1}). This is required for proper functionality. Please contact your hosting provider for information on how to make that directory writable.", $_SERVER['DOCUMENT_ROOT'], "img/avatars"), "Filesystem permission error");
+		mkdir("img/avatars");
+		mkdir("img/minipics");
+		mkdir("uploader");
+		Kill(format("If this is your first time seeing this error, refresh the page.<br />PHP does not seem to have write access to the /{1} directory ({0}/{1}). This is required for proper functionality. Please contact your hosting provider for information on how to make that directory writable.", $_SERVER['DOCUMENT_ROOT'], "img/avatars"), "Filesystem permission error");
 	else
 	{
 		fclose($test);

@@ -350,6 +350,7 @@ else if($_POST['action'] == "Install")
 	{
 		print "Creating starting fora&hellip;<br />";
 		Import("installDefaults.sql");
+		rename("lib/settings_template.php","lib/settings_template.php");
 	}
 
 	print "<h3>Your board has been set up.</h3>";

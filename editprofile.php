@@ -403,7 +403,7 @@ if($_POST['action'] == __("Tempban") && $user['tempbantime'] == 0)
  * ----------
  */
 $fallToEditor = true;
-if($_POST['action'] == __("Edit profile"))
+if($_POST['action'] == __("Save changes"))
 {
 	$fallToEditor = false;
 	$query = "UPDATE users SET ";
@@ -905,7 +905,7 @@ Write(
 "
 	<div class=\"margin right width50\" id=\"button\">
 		{2}
-		<input type=\"submit\" id=\"submit\" name=\"action\" value=\"".__("Edit profile")."\" />
+		<input type=\"submit\" id=\"submit\" name=\"action\" value=\"".__("Save changes")."\" />
 		<input type=\"hidden\" name=\"id\" value=\"{0}\" />
 		<input type=\"hidden\" name=\"key\" value=\"{1}\" />
 	</div>

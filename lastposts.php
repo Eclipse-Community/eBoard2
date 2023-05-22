@@ -18,6 +18,9 @@ $rPosts = Query($qPosts);
 while($post = Fetch($rPosts))
 {
 	$c = ($c+1) % 2;
+	
+	$theList = ""; //init variable
+	
 	$theList .= format(
 "
 	<tr class=\"cell{5}\">
@@ -37,7 +40,7 @@ while($post = Fetch($rPosts))
 			&raquo; <a href=\"thread.php?pid={0}#{0}\">{0}</a>
 		</td>
 	</tr>
-", $post['id'], cdate($dateformat,$post['date']), UserLink($post, "uid"), $post['ftit'], $post['ttit'], $c);
+", $post['id'], cdate($dateformat,$post['date']), UserLink($post, "uid"), $post['ftit'], htmlspecialchars($post['ttit']), $c);
 }
 
 if($theList == "")

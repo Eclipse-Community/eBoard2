@@ -57,7 +57,7 @@ else
 
 //$thread['title'] .= " ".ParseThreadTags($thread['title']);
 $tags = ParseThreadTags($thread['title']);
-$thread['title'] = strip_tags($thread['title']);
+$thread['title'] = htmlspecialchars($thread['title']);
 $title = $thread['title'];
 
 $qViewCounter = "update threads set views=".($thread['views']+1)." where id=".$tid." limit 1";

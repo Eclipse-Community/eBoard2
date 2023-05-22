@@ -28,7 +28,7 @@ if(NumRows($rThread))
 }
 else
 	Kill(__("Unknown thread ID."));
-$thread['title'] = strip_tags($thread['title']);
+$thread['title'] = htmlspecialchars($thread['title']);
 $tags = ParseThreadTags($thread['title']);
 $titleandtags = $thread['title']."<TAGS>".$tags;
 

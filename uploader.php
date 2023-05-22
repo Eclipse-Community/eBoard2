@@ -7,7 +7,7 @@ $title = __("Uploader");
 AssertForbidden("viewUploader");
 
 $rootdir = "uploader";
-//if(!is_file($rootdir."/.htaccess"))
+if(!is_file($rootdir."/.htaccess")) 
 {
 	$here = $_SERVER['SCRIPT_FILENAME'];
 	$here = substr($here, 0, strrpos($here, '/') + 1);

@@ -39,14 +39,16 @@ function DoFooter($buffer)
 	if(!$noFooter)
 	{
 		//if(function_exists("runBucket")) runBucket("footerButtons");
+		
+		$flair = "";
+		if $debugMode == TRUE $flair = " [DEBUG MODE]";
 
 		$footer = format(
 "
 		<div class=\"footer\">
-			Powered by <a href=\"https://github.com/Eclipse-Community/eBoard2\">eBoard2</a>, version 2.3a (2021-11-15)<br />
-			By K4sum1, Kouto, et al<br />
-			ABXD by Dirbaio, xfix, Kawa, StapleButter, Nina, et al<br />
-			AcmlmBoard © Jean-François Lapointe<br />
+			Powered by <a href=\"https://github.com/Eclipse-Community/eBoard2\">eBoard2</a>, version 2.3 (2021-11-15)".$flair."<br />
+			&copy; 2021-2023 <a href=\"http://www.eclipse.cx/\">Eclipse Community</a><br />
+			(Based on ABXD by Dirbaio, Kawa and co.)<br />
 			".__("Page rendered in {0} seconds with {1}.")."<br />
 			{3}
 			{2}

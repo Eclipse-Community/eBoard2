@@ -12,6 +12,9 @@ AssertForbidden("sendPM");
 
 if(!$loguserid) //Not logged in?
 	Kill(__("You must be logged in to send private messages."));
+	
+if(!$loguser['powerlevel'] < -1) // Actually give slowbanned a purpose now
+	Kill(__("You are permanently banned and are not allowed to use the private message function."));
 
 $pid = (int)$_GET['pid'];
 if($pid)

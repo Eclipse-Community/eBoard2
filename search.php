@@ -26,7 +26,7 @@ write("
 	</form>
 ");
 
-if($loguser['powerlevel'] < 1) die("</div>");
+if(!$loguserid) die("</div>"); // stop guests trying to DDOS the SQL server
 
 write("
 	<form action=\"search.php\" method=\"get\">

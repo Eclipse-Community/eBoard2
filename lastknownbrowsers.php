@@ -137,10 +137,7 @@ else
 
 function IP2C($ip)
 {
-	$q = @mysql_query("select cc from ip2c where ip_from <= inet_aton('".$ip."') and ip_to >= inet_aton('".$ip."')") or $r['cc'] = "";
-	if($q) $r = @mysql_fetch_array($q);
-	if($r['cc'])
-		return " <img src=\"img/flags/".strtolower($r['cc']).".png\" alt=\"".$r['cc']."\" title=\"".$r['cc']."\" />";
+	return "";
 }
 
 ?>

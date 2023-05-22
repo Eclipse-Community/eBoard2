@@ -13,7 +13,6 @@ $knownBrowsers = array
 	"IE"=>"Internet Explorer",
 	"Edge"=>"Microsoft Edge",
 	"NetSurf"=>"NetSurf",
-	"Netscape"=>"Netscape",
 	"Opera"=>"Opera",
 	"Opera Mini"=>"Opera Mini",
 	"Otter"=>"Otter Browser",

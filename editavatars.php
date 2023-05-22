@@ -8,6 +8,9 @@ AssertForbidden("editMoods");
 if(!$loguserid)
 	Kill(__("You must be logged in to edit your avatars."));
 
+if($loguser['powerlevel'] < 0)
+	Kill(__("Banned users may not manage their mood avatars."));
+
 if(isset($_POST['action']))
 {
 	$mid = (int)$_POST['mid'];

@@ -14,6 +14,9 @@ if (isset($_REQUEST['action']) && $key != $_REQUEST['key'])
 
 if(!$loguserid) //Not logged in?
 	Kill(__("You must be logged in to edit threads."));
+	
+if($loguser['powerlevel'] < 0)
+	Kill(__("Banned users may not edit thread titles."));
 
 if(isset($_POST['id']))
 	$_GET['id'] = $_POST['id'];

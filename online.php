@@ -72,13 +72,13 @@ if(NumRows($rUsers))
 			</td>
 ".($loguser['powerlevel'] > 0 ? "
 			<td>
-				{6} {7}
+				{6}
 			</td>
 " : "")."
 		</tr>
 	",	$cellClass, $i, UserLink($user), cdate("d-m-y G:i:s", $user['lastactivity']),
 		($user['lastposttime'] ? cdate("d-m-y G:i:s",$user['lastposttime']) : __("Never")),
-		$lastUrl, $user['lastip'], IP2C($user['lastip']));
+		$lastUrl, $user['lastip']);
 		$i++;
 	}
 }
@@ -112,7 +112,7 @@ if(NumRows($rGuests))
 		</tr>
 ",	$cellClass, $i, htmlspecialchars($guest['useragent']),
 	htmlspecialchars(substr($guest['useragent'], 0, 65)), cdate("d-m-y G:i:s", $guest['date']),
-	$lastUrl, $guest['ip'], IP2C($guest['ip']));
+	$lastUrl, $guest['ip']);
 		$i++;
 	}
 }
@@ -218,15 +218,6 @@ write(
 		{2}
 	</table>
 ", $userList, $guestList, $botList);
-
-
-function IP2C($ip)
-{
-	$q = @mysql_query("select cc from ip2c where ip_from <= inet_aton('".$ip."') and ip_to >= inet_aton('".$ip."')") or $r['cc'] = "";
-	if($q) $r = @mysql_fetch_array($q);
-	if($r['cc'])
-		return " <img src=\"img/flags/".strtolower($r['cc']).".png\" alt=\"".$r['cc']."\" title=\"".$r['cc']."\" />";
-}
 
 function FilterURL($url)
 {

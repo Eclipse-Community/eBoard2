@@ -167,7 +167,7 @@ $foo[__("Registered on")] = format("{0} ({1} ago)", cdate($dateformat, $user['re
 $foo[__("Score")] = $score;
 $foo[__("Browser")] = $user['lastknownbrowser'];
 if($loguser['powerlevel'] > 0)
-	$foo[__("Last known IP")] = $user['lastip'] . " " . IP2C($user['lastip']);	
+	$foo[__("Last known IP")] = $user['lastip'];	
 $profileParts[__("General information")] = $foo;
 
 $foo = array();
@@ -238,7 +238,30 @@ if($canDeleteComments && $_GET['action'] == "delete")
 	Query("delete from usercomments where uid=".$id." and id=".(int)$_GET['cid']);
 }
 
-$qComments = "select users.name, users.displayname, users.powerlevel, users.sex, usercomments.id, usercomments.cid, usercomments.text from usercomments left join users on users.id = usercomments.cid where uid=".$id." order by usercomments.date desc limit 0,10";
+//stole this from 3.0 lol. probably gonna not work, I barely know what I'm doing...
+$from = (int)$_GET["from"];
+if(!isset($_GET["from"]))
+	$from = 0;
+$realFrom = $total-$from-$cpp;
+$realLen = $cpp;
+if($realFrom < 0)
+{
+	$realLen += $realFrom;
+	$realFrom = 0;
+}
+
+$qComments = "select users.name, users.displayname, users.powerlevel, users.sex, usercomments.id, usercomments.cid, usercomments.text from usercomments left join users on users.id = usercomments.cid where uid=".$id." order by usercomments.date asc limit ".$realFrom.",".$realLen."";
+
+$pageLinks = array();
+for($p = $page - 5; $p < $page + 10; $p++)
+{
+	if($p < 1 || $p > $numPages)
+		continue;
+	if($p == $page || ($from == 0 && $p == 1))
+		$pageLinks[] = $p;
+	else
+		$pageLinks[] = "<a href=\"profile.php?id=".$id."&amp;from=".(($p-1) * $ppp)."\">".$p."</a>";
+
 $rComments = Query($qComments);
 $commentList = "";
 $commentField = "";
@@ -261,8 +284,6 @@ if(NumRows($rComments))
 						</tr>
 ",	UserLink($comment, "cid"), $cellClass, PutASmileOnThatFace(htmlspecialchars($comment['text'])), $deleteLink);
 		$commentList = $thisComment . $commentList;
-		if(!isset($lastCID))
-			$lastCID = $comment['cid'];
 	}
 }
 else
@@ -288,7 +309,6 @@ if($_POST['action'] == __("Post") && IsReallyEmpty(strip_tags($_POST['text'])) &
 	$rComment = Query($qComment);
 	if($loguserid != $id)
 		Query("update users set newcomments = 1 where id=".$id);
-	$lastCID = $loguserid;
 	$thisComment = format(
 "
 						<tr>
@@ -305,8 +325,6 @@ if($_POST['action'] == __("Post") && IsReallyEmpty(strip_tags($_POST['text'])) &
 	$commentList .= $thisComment;
 }
 
-//print "lastCID: ".$lastCID;
-
 if($loguserid)
 {
 	$commentField = format(
@@ -319,9 +337,7 @@ if($loguserid)
 									</form>
 								</div>
 ", $id);
-	/*if($lastCID == $loguserid)
-		$commentField = __("You already have the last word.");*/
-	if(!IsAllowed("makeComments"))
+	if(!IsAllowed("makeComments") !! $loguser['powerlevel'] < 0)
 		$commentField = __("You are not allowed to post usercomments.");
 }
 
@@ -403,14 +419,6 @@ function IsReallyEmpty($subject)
 {
 	$trimmed = trim(preg_replace("/&.*;/", "", $subject));
 	return strlen($trimmed) != 0;
-}
-
-function IP2C($ip)
-{
-	$q = @mysql_query("select cc from ip2c where ip_from <= inet_aton('".$ip."') and ip_to >= inet_aton('".$ip."')") or $r['cc'] = "";
-	if($q) $r = @mysql_fetch_array($q);
-	if($r['cc'])
-		return " <img src=\"img/flags/".strtolower($r['cc']).".png\" alt=\"".$r['cc']."\" title=\"".$r['cc']."\" />";
 }
 
 function PutASmileOnThatFace($s)

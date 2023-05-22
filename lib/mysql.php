@@ -14,8 +14,7 @@ if (!function_exists('Query'))
 
 	function Query($query)
 	{
-		global $queries, $loguser;
-		if ($loguser['powerlevel'] < 3) CheckQuery($query);
+		global $dblink, $queries, $loguser;
 		//write("#{0} - {1}<br/>", $queries, $query);
 		$res = mysqli_query($dblink, $query) or die(mysqli_error($dblink)."<br />Query was: <code>".$query."</code>");
 		$queries++;

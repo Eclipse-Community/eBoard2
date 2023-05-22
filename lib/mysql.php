@@ -6,7 +6,7 @@ include("database.php");
 $queries = 0;
 
 $dblink = mysqli_connect($dbserv, $dbuser, $dbpass, $dbname) or die("Could not connect to database.");
-mysqli_set_charset("utf8mb4");
+mysqli_set_charset($dblink, 'utf8mb4');
 unset($dbpass);
 
 if (!function_exists('Query'))

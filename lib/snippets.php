@@ -41,7 +41,7 @@ function DoFooter($buffer)
 		//if(function_exists("runBucket")) runBucket("footerButtons");
 		
 		$flair = "";
-		if $debugMode == TRUE $flair = " [DEBUG MODE]";
+		if ($debugMode == TRUE) $flair = " [DEBUG MODE]";
 
 		$footer = format(
 "

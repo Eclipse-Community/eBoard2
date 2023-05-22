@@ -1,7 +1,5 @@
 <?php
 
-include("lib/wrapper.php");
-
 $noViewCount = TRUE;
 $noOnlineUsers = TRUE;
 $noFooter = TRUE;
@@ -52,7 +50,7 @@ if(is_file("lib/database.php")) {
 	//if($misc['version'] >= 230) {
 	//	Kill("Updating to current version?");
 	//}
-	mysql_close();
+	mysqli_close($dblink);
 }
 else {
 	$dbserv = "localhost";
@@ -171,9 +169,12 @@ else if($_POST['action'] == "Install")
 	$dbname = $_POST['dbname'];
 	//2005: no such server
 	//1045: no such user
-	@mysql_connect($dbserv, $dbuser, $dbpass) or Kill(mysql_errno() == 2005 ? format("Could not connect to any database server at {0}. Usually, the database server runs on the same system as the web server, in which case \"localhost\" would suffice. If not, the server could be (temporarily) offline, nonexistant, or maybe you entered a full URL instead of just a hostname (\"http://www.mydbserver.com\" instead of just \"mydb.com\").", $dbserv) : format("The database server has rejected your username and/or password."), "Database connectivity error");
-	mysql_select_db($dbname) or Kill(format("Could not select database \"{0}\". Even though we could connect to the database server, there does not seem to be a database by that name on that server. Perhaps you forgot to add it before trying to install?", $dbname), "Database selection error");
-
+	$dblink = mysqli_connect($dbserv, $dbuser, $dbpass, $dbname) or Kill(mysqli_errno($dblink) == 2005 ? format("Could not connect to any database server at {0}. Usually, the database server runs on the same system as the web server, in which case \"localhost\" would suffice. If not, the server could be (temporarily) offline, nonexistant, or maybe you entered a full URL instead of just a hostname (\"http://www.mydbserver.com\" instead of just \"mydb.com\").", $dbserv) : format("The database server has rejected your username and/or password."), "Database connectivity error");
+	mysqli_set_charset($dblink, 'utf8mb4');
+	mysqli_query($dblink, "SET NAMES 'utf8mb4';");
+	mysqli_query($dblink, "SET CHARACTER SET 'utf8mb4';");
+	mysqli_query($dblink, "SET COLLATION_CONNECTION = 'utf8mb4_unicode_ci';");
+	
 	print "Writing database configuration file&hellip;<br />";
 	$dbcfg = @fopen("lib/database.php", "w+") or Kill(format("Could not open \"lib/{0}.php\" for writing. This has been checked for earlier, so if you see this error now, something very strange is going on.", "database"), "Mysterious filesystem permission error");
 	fwrite($dbcfg, "<?php\n");
@@ -431,7 +432,7 @@ function Upgrade()
 			$changes = 0;
 			$foundFields = array();
 			$scan = Query("show columns from `".$table."`");
-			while($field = mysql_fetch_assoc($scan))
+			while($field = mysqli_fetch_assoc($scan))
 			{
 				$fieldName = $field['Field'];
 				$foundFields[] = $fieldName;

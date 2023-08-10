@@ -1,7 +1,6 @@
 <?php
 //  AcmlmBoard XD support - Post functions
 
-include_once("geshi.php");
 include_once("write.php");
 
 function LoadSmilies($byOrder = FALSE)
@@ -152,22 +151,6 @@ function MakeSpoiler($match)
 }
 */
 
-function GeshiCallback($matches)
-{
-	$geshi = new GeSHi(trim($matches[1]), "csharp", null);
-	$geshi->set_header_type(GESHI_HEADER_NONE);
-	$geshi->enable_classes();
-	return format("<div class=\"geshi\">{0}</div>", str_replace("\n", "", $geshi->parse_code()));
-}
-
-function GeshiCallbackL($matches)
-{
-	$geshi = new GeSHi(trim($matches[2]), $matches[1], null);
-	$geshi->set_header_type(GESHI_HEADER_NONE);
-	$geshi->enable_classes();
-	return format("<div class=\"geshi\">{0}</div>", str_replace("\n", "", $geshi->parse_code()));
-}
-
 function MakeUserLink($matches)
 {
 	global $members;
@@ -232,12 +215,9 @@ function CleanUpPost($postText, $poster = "", $noSmilies = false, $noBr = false)
 
 	$s = EatThatPork($s);
 
-	$s = preg_replace_callback("'\[source=(.*?)\](.*?)\[/source\]'si", "GeshiCallbackL", $s);
-	$s = preg_replace_callback("'\[source\](.*?)\[/source\]'si", "GeshiCallback", $s);
-
 	$s = preg_replace_callback("'\[user=([0-9]+)\]'si", "MakeUserLink", $s);
 
-    $s = preg_replace_callback("'\[code\](.*?)\[/code\]'si", 'code_block',$s);
+	$s = preg_replace_callback("'\[code\](.*?)\[/code\]'si", 'code_block',$s);
 
 	$s = preg_replace("'\[b\](.*?)\[/b\]'si","<strong>\\1</strong>", $s);
 	$s = preg_replace("'\[i\](.*?)\[/i\]'si","<em>\\1</em>", $s);
@@ -250,7 +230,7 @@ function CleanUpPost($postText, $poster = "", $noSmilies = false, $noBr = false)
 	$s = preg_replace("'<s>(.*?)\</s>'si","<del>\\1</del>", $s);
 
 	//Do we need this?
-	//$s = preg_replace("'\[c=([0123456789ABCDEFabcdef]+)\](.*?)\[/c\]'si","<span style=\"color: #\\1\">\\2</span>", $s);
+	$s = preg_replace("'\[c=([0123456789ABCDEFabcdef]+)\](.*?)\[/c\]'si","<span style=\"color: #\\1\">\\2</span>", $s);
 
 	if($noBr == FALSE)
 		$s = str_replace("\n","<br />", $s);
@@ -263,16 +243,9 @@ function CleanUpPost($postText, $poster = "", $noSmilies = false, $noBr = false)
 		$s = preg_replace("'</$tag(.*?)>'si", "&lt;/$tag>", $s);
 	}
 
-	//Bad sites
-
 	//Various other stuff
-	//[SUGGESTION] Block "display: none" instead of just "display:" -- Mega-Mario
-	$s = preg_replace("'display:'si", "display<em></em>:", $s);
 
 	$s = preg_replace("@(on)(\w+?\s*?)=@si", '$1$2&#x3D;', $s);
-
-	$s = preg_replace("'-moz-binding'si"," -mo<em></em>z-binding", $s);
-	$s = preg_replace("'filter:'si","filter<em></em>:>", $s);
 	$s = preg_replace("'javascript:'si","javascript<em></em>:>", $s);
 
 	$s = str_replace("[spoiler]","<div class=\"spoiler\"><button onclick=\"toggleSpoiler(this.parentNode);\">Show spoiler</button><div class=\"spoiled hidden\">", $s);
@@ -282,8 +255,8 @@ function CleanUpPost($postText, $poster = "", $noSmilies = false, $noBr = false)
 	$s = preg_replace("'\[url\](.*?)\[/url\]'si","<a href=\"\\1\">\\1</a>", $s);
 	$s = preg_replace("'\[url=[\'\"]?(.*?)[\'\"]?\](.*?)\[/url\]'si","<a href=\"\\1\">\\2</a>", $s);
 	$s = preg_replace("'\[url=(.*?)\](.*?)\[/url\]'si","<a href=\"\\1\">\\2</a>", $s);
-	$s = preg_replace("'\[img\](.*?)\[/img\]'si","<img class=\"imgtag\" src=\"\\1\" alt=\"\">", $s);
-	$s = preg_replace("'\[img=(.*?)\](.*?)\[/img\]'si","<img class=\"imgtag\" src=\"\\1\" alt=\"\\2\" title=\"\\2\">", $s);
+	$s = preg_replace("'\[img\](.*?)\[/img\]'si","<a href=\"\\1\" alt=\"\"><img class=\"imgtag\" src=\"\\1\" alt=\"\"></a>", $s);
+	$s = preg_replace("'\[img=(.*?)\](.*?)\[/img\]'si","<a href=\"\\1\" alt=\"\\2\" title=\"\\2\"><img class=\"imgtag\" src=\"\\1\" alt=\"\\2\" title=\"\\2\"></a>", $s);
 
 	$s =  str_replace("[quote]","<blockquote><div><hr />", $s);
 	$s =  str_replace("[/quote]","<hr /></div></blockquote>", $s);
@@ -298,6 +271,7 @@ function CleanUpPost($postText, $poster = "", $noSmilies = false, $noBr = false)
 	$s = preg_replace_callback("@(href|src)\s*=\s*([^\s>]+)@si", "FilterJS", $s);
 
 	$s = preg_replace("'>>([0-9]+)'si",">><a href=\"thread.php?pid=\\1#\\1\">\\1</a>", $s);
+
 	if($poster)
 		$s = preg_replace("'/me '","<b>* ".$poster."</b> ", $s);
 
@@ -538,7 +512,7 @@ $sideBarStuff .= "<br />\n".__("User is <strong>online</strong>");
 
 	$post['posts'] = $rankHax;
 	if($post['postheader'] && !$isBlocked)
-		$postHeader = str_replace('$theme', $theme, ApplyTags(CleanUpPost($post['postheader'], "", $noSmilies, true), $tags));
+		$postHeader = str_replace('$theme', $theme, ApplyTags(CleanUpPost($post['postheader'], "", $noSmilies, true, $noBr, true), $tags));
 
 	$postText = ApplyTags(CleanUpPost($post['text'],$post['name'], $noSmilies, $noBr), $tags);
 
@@ -546,7 +520,7 @@ $sideBarStuff .= "<br />\n".__("User is <strong>online</strong>");
 
 	if($post['signature'] && !$isBlocked)
 	{
-		$postFooter = ApplyTags(CleanUpPost($post['signature'], "", $noSmilies, true), $tags);
+		$postFooter = ApplyTags(CleanUpPost($post['signature'], "", $noSmilies, true, $noBr, true), $tags);
 		if(!$post['signsep'])
 			$separator = "<br />_________________________<br />";
 		else

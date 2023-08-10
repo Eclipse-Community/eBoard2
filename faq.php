@@ -65,8 +65,8 @@ else
 
 $code1 = '<link rel="stylesheet" type="text/css" href="http://.../MyLayout_$theme.css" />';
 $code2 = '<link rel="stylesheet" type="text/css" href="http://.../MyLayout_'.$theme.'.css" />';
-$faq = str_replace("<themeexample1 />", DoGeshi($code1), $faq);
-$faq = str_replace("<themeexample2 />", DoGeshi($code2), $faq);
+$faq = str_replace("<themeexample1 />", '&lt;themeexample1&gt;', $faq);
+$faq = str_replace("<themeexample2 />", '&lt;themeexample2&gt;', $faq);
 $faq = str_replace("<themelist />", implode(", ", $themeFiles), $faq);
 $faq = str_replace("<admin />", $admin, $faq);
 
@@ -74,13 +74,5 @@ write("
 <div class=\"faq outline margin\" style=\"width: 60%; overflow: auto; margin: auto;\">
 {0}
 </div>", $faq);
-
-function DoGeshi($code)
-{
-	$geshi = new GeSHi(trim($code), "html4strict", null);
-	$geshi->set_header_type(GESHI_HEADER_NONE);
-	$geshi->enable_classes();
-	return "<span class=\"geshi\">".str_replace("\n", "", $geshi->parse_code())."</span>";
-}
 
 ?>

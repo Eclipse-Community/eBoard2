@@ -3,33 +3,12 @@
 
 include("wrapper.php");
 
-// Leaving this error in until Niko's new installer is there to whine about it instead. -- Kawa
-if(ini_get('register_globals'))
-	die("<p>PHP, as it is running on this server, has the <code>register_globals</code> setting turned on. This is something of a security hazard, and is a <a href=\"http://en.wikipedia.org/wiki/Deprecation\" target=\"_blank\">deprecated function</a>. For more information on this topic, please refer to the <a href=\"http://php.net/manual/en/security.globals.php\" target=\"_blank\">PHP manual</a>.</p><p>At any rate, the ABXD messageboard software is designed to run with <code>register_globals</code> turned <em>off</em>. If your provider allows the use of <code>.htaccess</code> files, you can try adding the line <code>php_flag register_globals off</code> to an <code>.htaccess</code> file in your board's root directory, though we suggest placing it on your website root directory (often something like <code>public_html</code>). If not, ask your provider to edit <code>php.ini</code> accordingly and make the internet a little safer for all of us.</p>");
-
 // I can't believe there are PRODUCTION servers that have E_NOTICE turned on. What are they THINKING? -- Kawa
 // E_DEPRECATED is disabled, because mysql_ extension is now deprecated
 error_reporting(E_ALL ^ E_NOTICE ^ E_DEPRECATED | E_STRICT);
 
 if(!is_file("lib/database.php"))
 	die("You should <a href=\"install.php\">install</a> the board database first.");
-	
-// Deslash GPC variables if we have magic quotes on
-if (get_magic_quotes_gpc())
-{
-	function AutoDeslash($val)
-	{
-		if (is_array($val))
-			return array_map('AutoDeslash', $val);
-		else if (is_string($val))
-			return stripslashes($val);
-	}
-	
-	$_REQUEST = array_map('AutoDeslash', $_REQUEST);
-	$_GET = array_map('AutoDeslash', $_GET);
-	$_POST = array_map('AutoDeslash', $_POST);
-	$_COOKIE = array_map('AutoDeslash', $_COOKIE);
-}
 
 include("salt.php");
 

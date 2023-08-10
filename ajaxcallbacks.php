@@ -78,7 +78,7 @@ else if($action == "ou")	//Online Users
 else if($action == "tf")	//Theme File
 {
 	include("css/themelist.php");
-	$theme = $_GET['t'];
+	$theme = htmlspecialchars($_GET['t']);
 	if (!$themes[$theme]) die("css/default.css|img/themes/default/logo.gif");
 	$themeFile = "css/".$theme.".css";
 	if(!file_exists($themeFile))

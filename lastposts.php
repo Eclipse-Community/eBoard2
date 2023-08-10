@@ -37,7 +37,7 @@ while($post = Fetch($rPosts))
 			&raquo; <a href=\"thread.php?pid={0}#{0}\">{0}</a>
 		</td>
 	</tr>
-", $post['id'], cdate($dateformat,$post['date']), UserLink($post, "uid"), $post['ftit'], $post['ttit'], $c);
+", $post['id'], cdate($dateformat,$post['date']), UserLink($post, "uid"), $post['ftit'], strip_tags($post['ttit']), $c);
 }
 
 if($theList == "")

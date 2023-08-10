@@ -43,7 +43,7 @@ function DoFooter($buffer)
 		$footer = format(
 "
 		<div class=\"footer\">
-			Powered by <a href=\"https://github.com/Eclipse-Community/eBoard2\">eBoard2</a>, version 2.3a (2021-11-15)<br />
+			Powered by <a href=\"https://github.com/Eclipse-Community/eBoard2\">eBoard2</a>, version 2.3a (2023-08-09)<br />
 			By K4sum1, Kouto, et al<br />
 			ABXD by Dirbaio, xfix, Kawa, StapleButter, Nina, et al<br />
 			AcmlmBoard © Jean-François Lapointe<br />

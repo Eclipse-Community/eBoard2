@@ -11,6 +11,8 @@
 // "splitlines" -- bool, enables <br /> insertion
 //Note that any rank below 10 posts is assumed text only as if noimages was set.
 
+//Credit to greatdocbrown for the coins and gem assets (https://greatdocbrown.itch.io/coins-gems-etc)
+
 $ranks = array
 (
 	array

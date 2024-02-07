@@ -140,7 +140,7 @@ if(!isset($_POST['action']))
 				<td class=\"cell1\">
 					<label>
 						<input type=\"checkbox\" id=\"b\" name=\"addbase\" />
-						Add starting forums and the usual gems rankset
+						Add starting forums and the usual Coins and Gems rankset
 					</label>
 				</td>
 			</tr>

@@ -29,7 +29,7 @@ function cdate($format, $date = 0)
 $loguser['fontsize'] = 80;
 $themeFile = "default.css";
 include("lib/snippets.php");
-include("lib/settings.php");
+include("lib/settings_template.php");
 $logopic = "img/themes/default/logo.gif";
 $overallTidy = 0;
 unset($misc['porabox']);
@@ -227,8 +227,8 @@ else if($_POST['action'] == "Install")
 
 
 	print "Writing board configuration file&hellip;<br />";
-	include("lib/settings.php");
-	$hax = @fopen("lib/settings.php", "w") or Kill(format("Could not open \"lib/{0}.php\" for writing. This has been checked for earlier, so if you see this error now, something very strange is going on.", "settings"), "Mysterious filesystem permission error");
+	include("lib/settings_template.php");
+	$hax = @fopen("lib/settings_template.php", "w") or Kill(format("Could not open \"lib/{0}.php\" for writing. This has been checked for earlier, so if you see this error now, something very strange is going on.", "settings"), "Mysterious filesystem permission error");
 	fputs($hax, "<?php\n");
 	fputs($hax, "//Generated and parsed by the Board Settings admin panel.\n");
 	fputs($hax, "\n");
@@ -342,7 +342,7 @@ else if($_POST['action'] == "Install")
 	{
 		print "Creating starting fora&hellip;<br />";
 		Import("installDefaults.sql");
-		rename("lib/settings_template.php","lib/settings_template.php");
+		rename("lib/settings_template.php","lib/settings.php");
 	}
 
 	print "<h3>Your board has been set up.</h3>";

@@ -1,12 +1,10 @@
 INSERT INTO `categories` VALUES(1, 'Staff', 1, 0);
 INSERT INTO `categories` VALUES(2, 'General', 0, 1);
 INSERT INTO `categories` VALUES(3, 'Janitorial Services', 0, 2);
-
 INSERT INTO `forums` (`id`, `title`, `description`, `catid`, `minpower`, `minpowerthread`, `minpowerreply`) VALUES(1, 'Admin room', 'Staff discussion forum', 1, 1, 1, 1);
 INSERT INTO `forums` (`id`, `title`, `description`, `catid`) VALUES(2, 'General chat', 'Talk about serious stuff', 2);
 INSERT INTO `forums` (`id`, `title`, `description`, `catid`) VALUES(3, 'Off-Topic', 'Talk about other stuff', 2);
 INSERT INTO `forums` (`id`, `title`, `description`, `catid`, `minpowerthread`, `minpowerreply`) VALUES(4, 'Trash', '[trash]Where deleted threads go', 3, 3, 3);
-
 INSERT INTO `ranks` (`rset`, `num`, `text`) VALUES
 (1, 0, 'Non-poster'),
 (1, 1, 'Newcomer'),
@@ -33,5 +31,4 @@ INSERT INTO `ranks` (`rset`, `num`, `text`) VALUES
 (1, 4000, '<img src="img/ranks/gems/gemgreen.gif" alt="Emerald Gem" /> Emerald Gem'),
 (1, 4500, '<img src="img/ranks/gems/gemblue.gif" alt="Sapphire Gem" /> Sapphire Gem'),
 (1, 5000, '<img src="img/ranks/gems/gempurple.gif" alt="Purple Sapphire Gem" /> Purple Sapphire Gem');
-
 INSERT INTO `ranksets` (`id`, `name`) VALUES (1, 'Coins and Gems');

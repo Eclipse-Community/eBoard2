@@ -20,7 +20,7 @@ INSERT INTO `ranks` (`rset`, `num`, `text`) VALUES
 (1, 750, '<img src="img/ranks/gems/squareorange.gif" alt="Calcite Radiant" /> Calcite Radiant'),
 (1, 875, '<img src="img/ranks/gems/squaregreen.gif" alt="Emerald Radiant" /> Emerald Radiant'),
 (1, 1000, '<img src="img/ranks/gems/squareblue.gif" alt="Sapphire Radiant" /> Sapphire Radiant'),
-(1, 1250, '<img src="img/ranks/gems/squarepurple.gif" alt="Purple Radiant" /> Purple Radiant'),
+(1, 1250, '<img src="img/ranks/gems/squarepurple.gif" alt="Purple Sapphire Radiant" /> Purple Sapphire Radiant'),
 (1, 1500, '<img src="img/ranks/gems/roundruby.gif" alt="Ruby Octagon" /> Ruby Octagon'),
 (1, 1750, '<img src="img/ranks/gems/roundorange.gif" alt="Calcite Octagon" /> Calcite Octagon'),
 (1, 2000, '<img src="img/ranks/gems/roundgreen.gif" alt="Emerald Octagon" /> Emerald Octagon'),

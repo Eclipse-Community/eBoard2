@@ -102,6 +102,17 @@ if($_POST['text'] && CheckTableBreaks($_POST['text']))
 	Alert(__("This post would break the board layout."), __("I'm sorry, Dave."));
 }
 
+if($_POST['text'] && $_POST['action'] != __("Preview"))
+{
+	$words = explode(" ", $_POST['text']);
+	$wordCount = count($words);
+	if($wordCount < 2)
+	{
+		$_POST['action'] = "";
+		Alert(__("Your post is too short to have any real meaning. Try a little harder. Your post needs more than two words."), __("I'm sorry, Dave."));
+	}
+}
+
 if(!isset($_POST['action']))
 {
 	$_POST['nopl'] = $post['options'] & 1;

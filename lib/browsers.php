@@ -27,6 +27,7 @@ $knownBrowsers = array
 	//Gecko-based browsers
 	"SeaMonkey"=>"SeaMonkey",
 	"Waterfox"=>"Waterfox",
+	"r3dfox"=>"Eclipse r3dfox",
 	"Firefox"=>"Firefox",
 	//Blink-based browsers
 	"OPR"=>"Opera",

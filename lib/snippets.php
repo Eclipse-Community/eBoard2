@@ -283,7 +283,6 @@ function DoPrivateMessageBar()
 function DoSmileyBar($taname = "text")
 {
 	global $smiliesOrdered;
-	$expandAt = 26;
 	LoadSmilies(TRUE);
 
 	write(
@@ -294,13 +293,9 @@ function DoSmileyBar($taname = "text")
 		</div>
 		<div class=\"errorc cell0\" id=\"smiliesContainer\">
 ");
-	if(count($smiliesOrdered) > $expandAt)
-		write("<button class=\"expander\" id=\"smiliesExpand\" onclick=\"expandSmilies();\">&#x25BC;</button>");
 	print "<div class=\"smilies\" id=\"commonSet\">";
 	for($i = 0; $i < count($smiliesOrdered) - 1; $i++)
 	{
-		if($i == $expandAt)
-			print "</div><div class=\"smilies\" id=\"expandedSet\">";
 		$s = $smiliesOrdered[$i];
 		print "<img src=\"img/smilies/".$s['image']."\" alt=\"".htmlentities($s['code'])."\" title=\"".htmlentities($s['code'])."\" onclick=\"insertSmiley(' ".str_replace("'", "\'", $s['code'])." ');\" />";
 	}
@@ -317,15 +312,12 @@ function DoPostHelp()
 	<div class=\"PoRT margin\" style=\"width: 90%;\">
 		<div class=\"errort\"><strong>".__("Post help")."</strong></div>
 		<div class=\"errorc cell0\">
-			<button class=\"expander\" id=\"postHelpExpand\" onclick=\"expandPostHelp();\">&#x25BC;</button>
 			<div id=\"commonHelp\" class=\"left\">
 				<h4>".__("Presentation")."</h4>
 				[b]&hellip;[/b] &mdash; <strong>".__("bold type")."</strong> <br />
 				[i]&hellip;[/i] &mdash; <em>".__("italic")."</em> <br />
 				[u]&hellip;[/u] &mdash; <span class=\"underline\">".__("underlined")."</span> <br />
 				[s]&hellip;[/s] &mdash; <del>".__("strikethrough")."</del><br />
-			</div>
-			<div id=\"expandedHelp\" class=\"left\">
 				[code]&hellip;[/code] &mdash; <code>".__("code block")."</code> <br />
 				[spoiler]&hellip;[/spoiler] &mdash; ".__("spoiler block")." <br />
 				[spoiler=&hellip;]&hellip;[/spoiler] <br />
@@ -350,11 +342,11 @@ function DoPostHelp()
 				[quote=&hellip;]&hellip;[/quote] &mdash; ".__("\"Posted by &hellip;\"")." <br />
 				[quote=\"&hellip;\" id=\"&hellip;\"]&hellip;[/quote] &mdash; \"".__("\"Post by &hellip;\" with link by post ID")." <br />
 	");
-	$bucket = "postHelpQuotations"; include("./lib/pluginloader.php");
+	/* $bucket = "postHelpQuotations"; include("./lib/pluginloader.php");
 	write("
 				<br />
 				<h4>".__("Embeds")."</h4>
-	");
+	"); */
 	$bucket = "postHelpEmbeds"; include("./lib/pluginloader.php");
 	write("
 			</div>

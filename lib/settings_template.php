@@ -5,7 +5,7 @@
 $boardname = 'eBoard2';
 $logoalt = 'Another eBoard2 Board';
 $logotitle = 'Another eBoard2 Board';
-$dateformat = 'Y/m/d, H:i:s';
+$dateformat = 'y/m/d, H:i:s';
 $autoLockMonths = 0;
 $warnMonths = 0;
 $customTitleThreshold = 0;

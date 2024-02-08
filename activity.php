@@ -10,7 +10,7 @@ $u = (int)$_GET['u'];
 
 $user = Fetch(Query("select regdate from users where id = ".$u));
 
-$vd = date("m-d-y", $user['regdate']);
+$vd = date("y/m/d", $user['regdate']);
 $dd = mktime(0, 0, 0, substr($vd, 0, 2), substr($vd, 3, 2), substr($vd, 6, 2));
 $dd2 = mktime(0, 0, 0, substr($vd, 0, 2), substr($vd, 3, 2) + 1, substr($vd, 6, 2));
 

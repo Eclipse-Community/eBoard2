@@ -1,7 +1,10 @@
 <?php
 header("Content-Type: text/css");
 
-$hue = 275;
+$curtime = getdate(time());
+$min = $curtime['hours'] * 60 + $curtime['minutes'];
+
+$hue = ($min / 2) % 360;
 $sat = 50;
 $hs = $hue.", ".$sat."%";
 
@@ -9,7 +12,7 @@ $css = "/* AcmlmBoard XD - Daily Cycle */
 
 body
 {
-	background: hsl(275, 50%, 15%) url(../img/themes/cycle/background.png);
+	background: hsl([huesat], 100%) url(../img/themes/cycle/background.gif);
 }
 
 .outline

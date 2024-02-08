@@ -56,8 +56,8 @@ if(!file_exists("css/".$themeFile))
 		$themeFile = "default.css";
 }
 $logopic = "img/themes/default/logo.gif";
-if(file_exists("img/themes/".$theme."/logo.png"))
-	$logopic = "img/themes/".$theme."/logo.png";
+if(file_exists("img/themes/".$theme."/logo.gif"))
+	$logopic = "img/themes/".$theme."/logo.gif";
 
 include("language.php");
 
